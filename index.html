@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <style>
+    #container {
+      display: flex;
+      justify-content: center;
+    }
+
+    #frame {
+      border: 2px solid rgb(75, 75, 75);
+      border-radius: .25em;
+      text-align: center;
+      justify-items: left;
+      height: 350px;
+      width: 600px;
+      margin: 50px;
+    }
+
+    #dvd {
+      position: relative;
+      width: 100px;
+      height: 40px;
+      background: tomato;
+      color: white;
+      left: 0;
+      top: 0;
+      margin: 0;
+      margin-block-start: 0px;
+      margin-block-end: 0px;
+    }
+
+    button {
+      position: relative;
+      top: 10px;
+      left: 200px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="frame">
+      <h1 id="dvd">DVD</h1>
+    </div>
+  </div>
+
+
+  <script>
+    const ymax = 350 - 40
+    const xmax = 600 - 100
+
+    const xmin = 0
+    const ymin = 0
+
+    let x = 0
+    let y = 0
+    let xSign = 1
+    let ySign = 1
+
+    setInterval(() => {
+      document.getElementById("dvd").style.top = `${y}px`
+      document.getElementById("dvd").style.left = `${x}px`
+      x = x + xSign
+      y = y + ySign
+
+      xSign = x >= xmax ? -1 : xSign
+      xSign = x <= xmin ? 1 : xSign
+      ySign = y >= ymax ? -1 : ySign
+      ySign = y <= ymin ? 1 : ySign
+
+    }, 25);
+
+  </script>
+</body>
+
+
+
+</html>
