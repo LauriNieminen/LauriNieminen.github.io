@@ -11,6 +11,7 @@
 
     #frame {
       border: 2px solid rgb(75, 75, 75);
+      background: black;
       border-radius: .25em;
       text-align: center;
       justify-items: left;
@@ -93,6 +94,7 @@
     const pickRandomColor = () => {
       const len = colors.length
       idx = Math.floor(Math.random() * len)
+      console.log(colors[idx])
       return colors[idx]
     }
 
@@ -105,12 +107,18 @@
       if (x >= xmax) {
         xSign = -1
         document.getElementById("dvd").style.background = pickRandomColor()
+      } else if (x <= xmin) {
+        xSign = 1
+        document.getElementById("dvd").style.background = pickRandomColor()
       }
 
-      xSign = x >= xmax ? -1 : xSign
-      xSign = x <= xmin ? 1 : xSign
-      ySign = y >= ymax ? -1 : ySign
-      ySign = y <= ymin ? 1 : ySign
+      if (y >= ymax) {
+        ySign = -1
+        document.getElementById("dvd").style.background = pickRandomColor()
+      } else if (y <= ymin) {
+        ySign = 1
+        document.getElementById("dvd").style.background = pickRandomColor()
+      }
 
     }, 25);
 
