@@ -61,11 +61,51 @@
     let xSign = 1
     let ySign = 1
 
+    const colors = [
+      "salmon",
+      "crimson",
+      "red",
+      "orange",
+      "coral",
+      "darkkhaki",
+      "lawngreen",
+      "yellowgreen",
+      "springgreen",
+      "olivedrab",
+      "lightcyan",
+      "aguamarine",
+      "skyblue",
+      "mediumslateblue",
+      "lavender",
+      "plum",
+      "pink",
+      "hotpink",
+      "honeydew",
+      "azure",
+      "gainsboro",
+      "wheat",
+      "goldenrod",
+      "sandybrown"
+    ]
+
+
+
+    const pickRandomColor = () => {
+      const len = colors.length
+      idx = Math.floor(Math.random() * len)
+      return colors[idx]
+    }
+
     setInterval(() => {
       document.getElementById("dvd").style.top = `${y}px`
       document.getElementById("dvd").style.left = `${x}px`
       x = x + xSign
       y = y + ySign
+
+      if (x >= xmax) {
+        xSign = -1
+        document.getElementById("dvd").style.background = pickRandomColor()
+      }
 
       xSign = x >= xmax ? -1 : xSign
       xSign = x <= xmin ? 1 : xSign
